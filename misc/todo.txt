@@ -1,0 +1,4 @@
+- Bagging, boosting
+- LambdaMART
+- Support sparse inputs
+- Support "equal" splits
