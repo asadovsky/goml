@@ -1,7 +1,7 @@
 // Package core defines common data structures and functions.
 package core
 
-// Note, go default-initializes array values to 0, so we can't be as fast as C.
+// Note: Go default-initializes array values to 0, so we can't be as fast as C.
 // https://groups.google.com/d/topic/golang-nuts/Nt8js4TgB04/discussion
 
 type Feature struct {

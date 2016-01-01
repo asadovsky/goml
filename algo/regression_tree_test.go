@@ -1,12 +1,3 @@
-// Tests and benchmarks for BuildTree.
-//
-// To run tests:
-//   go test goml/algo
-//   go test goml/algo -run=Affects
-//
-// To run benchmarks:
-//   go test goml/algo -bench=.
-
 package algo
 
 import "testing"
@@ -125,8 +116,9 @@ func TestDepth1Tree(t *testing.T) {
 	}
 }
 
-// Same as above, but with scrambled output, weight, inputs, and order of inputs.
-// NOTE: For this test, we intentionally made it so the best split creates
+// Same as above, but with scrambled output, weight, inputs, and order of
+// inputs.
+// Note: For this test, we intentionally made it so the best split creates
 // regions of different sizes.
 func TestDepth1TreeScrambled(t *testing.T) {
 	output := []float32{3, 1, 5, 4, 2}

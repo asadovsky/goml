@@ -1,18 +1,8 @@
-// Tests and benchmarks for Feature.
-//
-// To run tests:
-//   go test goml/core
-//
-// To run benchmarks:
-//   go test goml/core -bench=.
-//   go test goml/core -bench=Sum
-
 package core
 
 import "testing"
 
-// NOTE: We don't test for out-of-bounds offset, since there's no built-in way
-// to test for panics.
+// TODO: Test for panic on out-of-bounds offset.
 func TestNewFeature(t *testing.T) {
 	values := []float32{1, 2, 3}
 	f := NewFeature(values)
@@ -52,7 +42,6 @@ func BenchmarkSumArrayIndex(b *testing.B) {
 	}
 }
 
-// 35% slower than BenchmarkSumArrayIndex!
 func BenchmarkSumArrayRange(b *testing.B) {
 	values := makeBigArray()
 	for i := 0; i < b.N; i++ {
@@ -63,9 +52,9 @@ func BenchmarkSumArrayRange(b *testing.B) {
 	}
 }
 
-// NOTE: Index is faster than Range, so the remaining benchmarks use index.
+// Note: Index-based iteration used to be much faster than range-based
+// iteration, so the following benchmarks use the former.
 
-// Surprisingly, 3% faster than BenchmarkSumArrayIndex.
 func BenchmarkSumSlice(b *testing.B) {
 	values := makeBigSlice()
 	for i := 0; i < b.N; i++ {
@@ -76,7 +65,6 @@ func BenchmarkSumSlice(b *testing.B) {
 	}
 }
 
-// 15% slower than BenchmarkSumSlice. Same speed if to extract values slice.
 func BenchmarkSumFeature(b *testing.B) {
 	f := NewFeature(makeBigSlice())
 	for i := 0; i < b.N; i++ {

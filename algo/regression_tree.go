@@ -6,10 +6,10 @@ import "math"
 import "sort"
 
 // TODO:
-//  - Support sparse inputs. I.e. use Feature instead of []float32.
-//  - Support "equal" splits.
+// - Support sparse inputs. I.e. use Feature instead of []float32.
+// - Support "equal" splits.
 
-// NOTE: Until we switch to Feature objects, ids can be interpreted as offsets.
+// Note: Until we switch to Feature objects, ids can be interpreted as offsets.
 
 // TODO: Support different split types (GT, LT, or EQ). We should probably just
 // define an "interval" struct to represent an interval of float values.
@@ -215,7 +215,8 @@ func (tb *treeBuilder) TryToSplitRegion(region offsetRange, splitIdx, depth int)
 	}
 
 	// Algorithm:
-	// - For each input, try each split; pick the one that minimizes squared error.
+	// - For each input, try each split; pick the one that minimizes squared
+	//   error.
 	// - Pick the best split across inputs.
 	// - If a split was found, update internal state.
 
